@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="sunset">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -11,90 +11,110 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
-<body class="flex justify-center items-center h-screen">
+<body class="min-h-screen flex justify-center items-center bg-gray-900">
 
-    <div class="p-8 rounded-lg shadow-lg w-full max-w-3xl">
-        <h2 class="text-2xl font-bold text-center text-primary mb-6">Bank Term Deposit Prediction</h2>
+<div class="card w-full max-w-3xl shadow-2xl bg-gray-800/95 backdrop-blur-sm border border-gray-700 p-10 rounded-2xl">
+    <h2 class="text-4xl font-extrabold text-center text-yellow-400 mb-10 tracking-wide">
+        Bank Term Deposit Prediction
+    </h2>
 
-        <form id="predictForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-                <label for="age" class="label">Age:</label>
-                <input type="number" id="age" name="age" required min="0" max="120" placeholder="Enter your age"
-                    class="input input-primary input-bordered w-full">
-            </div>
+    <form id="predictForm" class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
-            <div>
-                <label for="job" class="label">Job:</label>
-                <select id="job" name="job" required class="select select-primary select-bordered w-full">
-                    <option value="" disabled selected>Select Job</option>
-                    <option value="0">Management</option>
-                    <option value="1">Technician</option>
-                    <option value="2">Entrepreneur</option>
-                    <option value="3">Blue-collar</option>
-                    <option value="5">Retired</option>
-                    <option value="6">Admin</option>
-                    <option value="7">Services</option>
-                    <option value="8">Self-employed</option>
-                    <option value="9">Unemployed</option>
-                    <option value="10">Housemaid</option>
-                    <option value="11">Student</option>
-                </select>
-            </div>
+        <!-- Age -->
+        <div class="form-control">
+            <label for="age" class="label font-semibold text-gray-200">Age</label>
+            <input type="number" id="age" name="age" required min="0" max="120" placeholder="Enter your age"
+                   class="input input-bordered w-full border-gray-600 bg-gray-700 text-white focus:ring-2 focus:ring-yellow-400 rounded-xl" />
+        </div>
 
-            <div>
-                <label for="marital" class="label">Marital Status:</label>
-                <select id="marital" name="marital" required class="select select-primary select-bordered w-full">
-                    <option value="" disabled selected>Select Marital Status</option>
-                    <option value="0">Married</option>
-                    <option value="1">Single</option>
-                    <option value="2">Divorced</option>
-                </select>
-            </div>
+        <!-- Job -->
+        <div class="form-control">
+            <label for="job" class="label font-semibold text-gray-200">Job</label>
+            <select id="job" name="job" required
+                    class="select select-bordered w-full border-gray-600 bg-gray-700 text-white focus:ring-2 focus:ring-yellow-400 rounded-xl">
+                <option value="" disabled selected>Select Job</option>
+                <option value="0">Management</option>
+                <option value="1">Technician</option>
+                <option value="2">Entrepreneur</option>
+                <option value="3">Blue-collar</option>
+                <option value="5">Retired</option>
+                <option value="6">Admin</option>
+                <option value="7">Services</option>
+                <option value="8">Self-employed</option>
+                <option value="9">Unemployed</option>
+                <option value="10">Housemaid</option>
+                <option value="11">Student</option>
+            </select>
+        </div>
 
-            <div>
-                <label for="education" class="label">Education:</label>
-                <select id="education" name="education" required class="select select-primary select-bordered w-full">
-                    <option value="" disabled selected>Select Education</option>
-                    <option value="0">Tertiary</option>
-                    <option value="1">Secondary</option>
-                    <option value="3">Primary</option>
-                </select>
-            </div>
+        <!-- Marital -->
+        <div class="form-control">
+            <label for="marital" class="label font-semibold text-gray-200">Marital Status</label>
+            <select id="marital" name="marital" required
+                    class="select select-bordered w-full border-gray-600 bg-gray-700 text-white focus:ring-2 focus:ring-yellow-400 rounded-xl">
+                <option value="" disabled selected>Select Marital Status</option>
+                <option value="0">Married</option>
+                <option value="1">Single</option>
+                <option value="2">Divorced</option>
+            </select>
+        </div>
 
-            <div>
-                <label for="default" class="label">Credit in Default:</label>
-                <select id="default" name="default" required class="select select-primary select-bordered w-full">
-                    <option value="" disabled selected>Select Default Status</option>
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
-                </select>
-            </div>
+        <!-- Education -->
+        <div class="form-control">
+            <label for="education" class="label font-semibold text-gray-200">Education</label>
+            <select id="education" name="education" required
+                    class="select select-bordered w-full border-gray-600 bg-gray-700 text-white focus:ring-2 focus:ring-yellow-400 rounded-xl">
+                <option value="" disabled selected>Select Education</option>
+                <option value="0">Tertiary</option>
+                <option value="1">Secondary</option>
+                <option value="3">Primary</option>
+            </select>
+        </div>
 
-            <div>
-                <label for="housing" class="label">Housing Loan:</label>
-                <select id="housing" name="housing" required class="select select-primary select-bordered w-full">
-                    <option value="" disabled selected>Select Housing Loan</option>
-                    <option value="0">Yes</option>
-                    <option value="1">No</option>
-                </select>
-            </div>
+        <!-- Default -->
+        <div class="form-control">
+            <label for="default" class="label font-semibold text-gray-200">Credit in Default</label>
+            <select id="default" name="default" required
+                    class="select select-bordered w-full border-gray-600 bg-gray-700 text-white focus:ring-2 focus:ring-yellow-400 rounded-xl">
+                <option value="" disabled selected>Select Default Status</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
 
-            <div>
-                <label for="loan" class="label">Personal Loan:</label>
-                <select id="loan" name="loan" required class="select select-primary select-bordered w-full">
-                    <option value="" disabled selected>Select Personal Loan</option>
-                    <option value="0">No</option>
-                    <option value="1">Yes</option>
-                </select>
-            </div>
+        <!-- Housing -->
+        <div class="form-control">
+            <label for="housing" class="label font-semibold text-gray-200">Housing Loan</label>
+            <select id="housing" name="housing" required
+                    class="select select-bordered w-full border-gray-600 bg-gray-700 text-white focus:ring-2 focus:ring-yellow-400 rounded-xl">
+                <option value="" disabled selected>Select Housing Loan</option>
+                <option value="0">Yes</option>
+                <option value="1">No</option>
+            </select>
+        </div>
 
-            <div class="md:col-span-2 flex justify-center">
-                <button type="button" onclick="predict()" class="btn btn-primary w-full">Submit</button>
-            </div>
-        </form>
-    </div>
+        <!-- Loan -->
+        <div class="form-control">
+            <label for="loan" class="label font-semibold text-gray-200">Personal Loan</label>
+            <select id="loan" name="loan" required
+                    class="select select-bordered w-full border-gray-600 bg-gray-700 text-white focus:ring-2 focus:ring-yellow-400 rounded-xl">
+                <option value="" disabled selected>Select Personal Loan</option>
+                <option value="0">No</option>
+                <option value="1">Yes</option>
+            </select>
+        </div>
 
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
+        <!-- Button -->
+        <div class="md:col-span-2 flex justify-center">
+            <button type="button" onclick="predict()"
+                    class="btn w-full bg-gradient-to-r from-blue-700 via-purple-700 to-yellow-500 text-white font-bold py-3 rounded-xl shadow-lg hover:scale-105 transition-transform duration-300">
+                🚀 Submit Prediction
+            </button>
+        </div>
+    </form>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>
 
